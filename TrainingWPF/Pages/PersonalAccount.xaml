@@ -69,8 +69,11 @@
             <ComboBox Margin="0 5 0 0" Name="cmbCountry"></ComboBox>
             <ComboBox Margin="0 5 0 0" Name="cmbGender"></ComboBox>
         </StackPanel>
+       
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            
             <Button  Content="Назад" Click="Button_Click" Template="{StaticResource btnTemp}"/>
+            <Button  Content="Сохранить" Click="Button_Click_2" Template="{StaticResource btnTemp}"/>
             <Button  Content="Меню" Click="Button_Click" Template="{StaticResource btnTemp}"/>
 
         </StackPanel>

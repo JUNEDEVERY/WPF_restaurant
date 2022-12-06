@@ -32,13 +32,14 @@ namespace TrainingWPF.Pages
         int u_id;
 
         List<Country> countryList = DataBase.tbE.Country.ToList();
+        List<Users> users = DataBase.tbE.Users.ToList();
         List<City> cityList = DataBase.tbE.City.ToList();
         List<GenderTable> genderList = DataBase.tbE.GenderTable.ToList();
         List<UserPhoto> userPhotos = DataBase.tbE.UserPhoto.ToList();
         void showIMG(byte[] bArray, System.Windows.Controls.Image image)
         {
             BitmapImage bitmapImage = new BitmapImage();
-            using(MemoryStream memoryStream = new MemoryStream(bArray))
+            using (MemoryStream memoryStream = new MemoryStream(bArray))
             {
                 bitmapImage.BeginInit();
                 bitmapImage.StreamSource = memoryStream;
@@ -56,7 +57,7 @@ namespace TrainingWPF.Pages
             nullPhoto.MaxWidth = 150;
             nullPhoto.MinHeight = 150;
             nullPhoto.MinWidth = 150;
-           
+
             Surname.Text = user.Surname;
             Name.Text = user.Name;
             Patronymic.Text = user.Patronymic;
@@ -73,15 +74,15 @@ namespace TrainingWPF.Pages
             cmbCity.SelectedValue = DataBase.tbE.City.FirstOrDefault(x => x.idCity == user.idCity).idCity;
             cmbCountry.SelectedValue = DataBase.tbE.Country.FirstOrDefault(x => x.idCountry == user.idCountry).idCountry;
             cmbGender.SelectedValue = DataBase.tbE.GenderTable.FirstOrDefault(x => x.IdGender == user.IdGender).IdGender;
-            List<UserPhoto> userPhotos = DataBase.tbE.UserPhoto.Where(x => x.idPhoto == user.MainPhotoid).ToList(); 
-            if(userPhotos.Count != 0)
+            List<UserPhoto> userPhotos = DataBase.tbE.UserPhoto.Where(x => x.idPhoto == user.MainPhotoid).ToList();
+            if (userPhotos.Count != 0)
             {
-                
+
                 byte[] Bar = userPhotos.FirstOrDefault().photoBinary;   // считываем изображение из базы (считываем байтовый массив двоичных данных) - выбираем последнее добавленное изображение
                 showIMG(Bar, nullPhoto);  // отображаем картинку
             }
-        
-        
+
+
         }
 
         private void btnChange_Click(object sender, RoutedEventArgs e)
@@ -109,7 +110,18 @@ namespace TrainingWPF.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+
+            Users users = new Users();
+            if (users.idRole == 1)
+            {
+                NavigationService.Navigate(new AdminPage2(user));
+
+            }
+            else
+            {
+                NavigationService.GoBack();
+            }
+
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
@@ -143,7 +155,7 @@ namespace TrainingWPF.Pages
             {
                 MessageBox.Show("Что-то пошло не так", "Минутку....", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-    
+
         }
 
         private void change_Click(object sender, RoutedEventArgs e)
@@ -152,9 +164,9 @@ namespace TrainingWPF.Pages
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Multiselect = true;
-                if(openFileDialog.ShowDialog() == true)
+                if (openFileDialog.ShowDialog() == true)
                 {
-                    foreach(string file in openFileDialog.FileNames)
+                    foreach (string file in openFileDialog.FileNames)
                     {
                         UserPhoto userPhoto = new UserPhoto();
                         userPhoto.id_client = user.id_client;
@@ -168,7 +180,7 @@ namespace TrainingWPF.Pages
                     MessageBox.Show("Фото добавлены");
                     this.NavigationService.Refresh();
                 }
-                
+
             }
             catch
             {
@@ -176,10 +188,10 @@ namespace TrainingWPF.Pages
             }
         }
 
-  
+
 
         int count = 0;
-    
+
         private void backPicture_Click(object sender, RoutedEventArgs e)
         {
             List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == user.id_client).ToList();
@@ -210,10 +222,10 @@ namespace TrainingWPF.Pages
             {
                 backPicture.IsEnabled = true;
             }
-            if (users1.Count  != 0 && users1.Count > count)  
+            if (users1.Count != 0 && users1.Count > count)
             {
 
-                byte[] Bar = users1[count].photoBinary;   
+                byte[] Bar = users1[count].photoBinary;
                 showIMG(Bar, nullPhoto);
             }
             if (count == users1.Count - 1)
@@ -228,13 +240,13 @@ namespace TrainingWPF.Pages
             {
                 WindowChangePasswordLogin windowChangePasswordLogin = new WindowChangePasswordLogin(user);
                 windowChangePasswordLogin.ShowDialog();
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -252,9 +264,9 @@ namespace TrainingWPF.Pages
             {
                 if (user.photo != null)
                 {
-                    byte[] bytes = user.photo;  
+                    byte[] bytes = user.photo;
                     BitmapImage bitmapImage = new BitmapImage();
-                    using(MemoryStream memory = new MemoryStream(bytes))
+                    using (MemoryStream memory = new MemoryStream(bytes))
                     {
                         bitmapImage.BeginInit();
                         bitmapImage.StreamSource = memory;
@@ -263,18 +275,63 @@ namespace TrainingWPF.Pages
                     }
                     nullPhoto.Source = bitmapImage;
                     nullPhoto.Stretch = Stretch.Uniform;
-                   
+
                 }
                 else
                 {
                     string path = Environment.CurrentDirectory;
                     path = path.Replace("bin\\Debug", "Resources\\nullphoto.png");
                     nullPhoto.Source = BitmapFrame.Create(new Uri(path));
-                    
+
                 }
-                
+
             };
-            
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int genderList = 0;
+                if (cmbGender.SelectedItem != null)
+                {
+                    ComboBoxItem comboBoxItem = (ComboBoxItem)cmbGender.SelectedItem;
+                    switch (comboBoxItem.Content)
+                    {
+                        case "Мужской":
+                            {
+                                genderList = 1;
+                                break;
+                            }
+                        case "Женский":
+                            {
+                                genderList = 2;
+                                break;
+                            }
+                    }
+
+                }
+
+
+                
+
+
+                Users users = new Users()
+                {
+                    idCity = (int)cmbCity.SelectedItem,
+
+
+                    IdGender = genderList
+                };
+                MessageBox.Show("ок");
+                DataBase.tbE.Users.Add(users);
+                DataBase.tbE.SaveChanges();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

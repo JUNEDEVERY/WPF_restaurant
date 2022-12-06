@@ -184,7 +184,7 @@ namespace TrainingWPF.Pages
                 
                 NavigationService.Navigate(new Order());
                 
-
+                    
             }
             catch
             {

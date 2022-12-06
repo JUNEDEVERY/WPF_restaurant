@@ -93,7 +93,7 @@ namespace TrainingWPF.Pages
         private void cmbGender_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbGender.SelectedItem != null)
-            {
+            {   
                 ComboBoxItem comboBoxItem = (ComboBoxItem)cmbGender.SelectedItem;
                 switch (comboBoxItem.Content)
                 {
