@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc3ef6d9175440af9ad397a706128d79" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Bludo" Width="1.5" PointX="7.75" PointY="8.25" />
+        <EntityTypeShape EntityType="Model.City" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="Model.Country" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.GenderTable" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="Model.Menu" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Napitok" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="Model.UserPhoto" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="Model.Zakaz" Width="1.5" PointX="5.25" PointY="4.25" />
+        <EntityTypeShape EntityType="Model.ZakazIzMenu" Width="1.5" PointX="7.5" PointY="4.25" />
+        <AssociationConnector Association="Model.FK_Users_City" />
+        <AssociationConnector Association="Model.FK_Users_Country" />
+        <AssociationConnector Association="Model.FK_Users_Gender" />
+        <AssociationConnector Association="Model.FK_ZakazIzMenu_Menu" />
+        <AssociationConnector Association="Model.FK_ZakazIzMenu_Napitok" />
+        <AssociationConnector Association="Model.FK_Users_Role" />
+        <AssociationConnector Association="Model.FK_Zakaz_Status" />
+        <AssociationConnector Association="Model.FK_UserPhoto_Users" />
+        <AssociationConnector Association="Model.FK_Users_UserPhoto" />
+        <AssociationConnector Association="Model.FK_Zakaz_Users1" />
+        <AssociationConnector Association="Model.FK_ZakazIzMenu_Zakaz" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

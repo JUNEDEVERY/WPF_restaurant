@@ -1,0 +1,39 @@
+﻿<Window x:Class="TrainingWPF.Pages.WindowChangePhotoGallery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrainingWPF.Pages"
+        mc:Ignorable="d"
+        Title="Изменение аватарки" Height="505" Width="600"  WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+
+            <RowDefinition Height="*"/>
+
+
+        </Grid.RowDefinitions>
+        <ListView Name="lvGallery" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="350">
+        <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+                        
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+        </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image Height="160" Width="160" Name="img" Uid="{Binding idPhoto}" Loaded="img_Loaded"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0"  Content="Изменить" Name="btnChange" Click="btnChange_Click"/>
+            <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" Content="Добавить" Name="btnAdd" Click="btnAdd_Click"/>
+            <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" Content="Удалить" Name="btnDelete" Click="btnDelete_Click"/>
+            <Button Template="{StaticResource btnTemp}"  Margin="0 0 15 0" Content="Назад" Name="btnBack" Click="btnBack_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

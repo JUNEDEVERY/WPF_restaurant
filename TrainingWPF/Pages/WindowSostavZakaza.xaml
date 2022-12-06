@@ -1,0 +1,44 @@
+﻿<Window x:Class="TrainingWPF.Pages.WindowSostavZakaza"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrainingWPF.Pages"
+        mc:Ignorable="d"
+        Title="Состав заказа" Height="300" Width="300"  WindowStartupLocation="CenterScreen">
+    <Grid Background="#f5d2aa">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cумма заказа: "/>
+                <TextBlock Name="SumZakaz"/>
+                <TextBlock Text=" руб."/>
+                <TextBlock Text="    Статус заказа: "/>
+                <TextBlock Name="StatusZakaz"/>
+            </StackPanel>
+            <ListView Name="lVMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Menu.titile}" TextWrapping="Wrap"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding quantity}"/>
+                                <TextBlock Text=" шт."/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Menu.price}"/>
+                                <TextBlock Text=" руб."/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+       
+        </StackPanel>
+    </Grid>
+</Window>
+

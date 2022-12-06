@@ -1,0 +1,88 @@
+﻿<Page x:Class="TrainingWPF.Pages.Order"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrainingWPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Background="White"
+      Title="ShowMenu">
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="/Resources/nophoto.png"/>
+    </Page.Resources>
+
+
+
+    <Grid Background="#f5d2aa">
+        <StackPanel Orientation="Vertical">
+            <ListView Name="lVMenu1" Height="350" Background="#f5d2aa">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate >
+                        <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="4" CornerRadius="20, 0, 0, 20">
+                            <StackPanel Background="{Binding backgroud}" HorizontalAlignment="Center">
+                                <StackPanel Orientation='Horizontal'  HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Users.Surname}"/>
+                                    <TextBlock Text=" "/>
+                                    <TextBlock Text="{Binding Users.Name}"/>
+                                    <TextBlock Text=" "/>
+                                    <TextBlock Text="{Binding Users.Patronymic}"/>
+                                </StackPanel>
+                                <StackPanel Orientation='Horizontal' HorizontalAlignment="Center">
+                                    <TextBlock Text="Сумма заказа - "/>
+                                    <TextBlock Name="Summ" Text="{Binding sum}"/>
+                                    <TextBlock Text=" руб."/>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock HorizontalAlignment="Center" Text="Дата заказа: "/>
+                                    <TextBlock Name="datetime" Text="{Binding datetime,ConverterCulture=RU, StringFormat={}dd MMMM yyyy года}"/>
+                                </StackPanel>
+
+                                <StackPanel HorizontalAlignment="Center">
+
+                                    <TextBlock HorizontalAlignment="Center" Text="Статус заказа: "/>
+                                    <TextBlock HorizontalAlignment="Center" Name="status" FontWeight="Bold" Text="{Binding Status.statustype}"/>
+
+
+                                </StackPanel>
+                              
+
+                                <Button Margin="0 2 0 0" Name="SostavZakaz"  Click="SostavZakaz_Click" Content="Состав заказа" Tag="{Binding idZakaz}" Template="{StaticResource btnTemp}"/>
+                                
+                                <Button Margin="0 2 0 0" Name="Редактировать"  Click="Редактировать_Click" Content="Редактировать" Tag="{Binding idZakaz}" Template="{StaticResource btnTemp}"/>
+                                <Button Margin="0 2 0 0" Name="Удалить"  Click="Удалить_Click" Content="Удалить " Tag="{Binding idZakaz}" Template="{StaticResource btnTemp}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Cумма всех заказов: "/>
+                    <TextBlock Name="SumZakazov"/>
+                    <TextBlock Text="    "/>
+                    <TextBlock Text="Заказов в работе: "/>
+                    <TextBlock Name="ZakazovRabota"/>
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" >
+
+           
+                <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" x:Name="btngoBack" Click="btngoBack_Click" Content="Назад" />
+            </StackPanel>
+           
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,65 @@
+﻿<Page x:Class="TrainingWPF.Pages.ShowMenu"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:local="clr-namespace:TrainingWPF.Pages"
+mc:Ignorable="d"
+d:DesignHeight="450" d:DesignWidth="800"
+Background="#f5d2aa"
+Title="ShowMenu" >
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="/Resources/nophoto.png"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1.8*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView BorderThickness="0" Name="lVMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#f5d2aa" Height="400" Grid.ColumnSpan="2" Margin="0,-70,250,20">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="150" Width="150">
+                        <TextBlock TextAlignment="Center" Text="{Binding titile}" TextWrapping="Wrap"/>
+                        <Image Width="50" Height="50" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"/>
+                        <TextBlock TextAlignment="Center" Text="{Binding description}" TextWrapping="Wrap"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <TextBlock  TextAlignment="Justify" Text="{Binding price}"/>
+                            <TextBlock TextAlignment="Center" Text=" руб."/>
+                        </StackPanel>
+                        <Button x:Name="addMenu" Margin="0 5 0 0" Click="addMenu_Click" Content="Добавить" Tag="{Binding idMenu}" Template="{StaticResource btnTemp}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+
+
+        </ListView>
+        <StackPanel Grid.Column="1">
+            <ListView Background="#f5d2aa" x:Name="Zakaz" Height="300" BorderThickness="0">
+  
+            </ListView>
+            <StackPanel Margin="0 10 0 0">
+                <Button Margin="0 5 0 0" Name="AddOrder" Content="Оформить заказ" Template="{StaticResource btnTemp}" Click="AddOrder_Click"/>
+                <StackPanel Margin="0 15 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="GoBack" Content="Назад" Template="{StaticResource btnTemp}" Click="GoBack_Click"/>
+                    <Button Margin="5 0 0 0" Name="DeletePart" Content="Удалить" Template="{StaticResource btnTemp}" Click="DeletePart_Click"/>
+                </StackPanel>
+
+
+
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

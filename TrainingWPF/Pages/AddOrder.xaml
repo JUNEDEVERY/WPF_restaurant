@@ -1,0 +1,57 @@
+﻿<Page x:Class="TrainingWPF.Pages.AddOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrainingWPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddOrder">
+
+    <Grid Background="#f5d2aa">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+           
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,0,0,5">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >  
+                <GroupBox Header="Выбор блюда" Style="{StaticResource gpText}" Width="250" >
+                    <ComboBox Name="cmbBludo" SelectionChanged="cmbBludo_SelectionChanged"/>
+                </GroupBox>
+                <GroupBox Header="Выберите статус или оставьте текущий" Width="250" Style="{StaticResource gpText}">
+                    <ComboBox Name="STATUS"/>
+                </GroupBox>
+            </StackPanel>
+            
+            <GroupBox Header="Введите количество " Style="{StaticResource gpText}" Width="500">
+                <TextBox Name="tb1" MaxLength="2 " KeyUp="TextBox_KeyUp" >
+
+                </TextBox>
+            </GroupBox>
+           
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <ListView Name="lVMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="300" Width="500" >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+            </ListView>
+        </StackPanel>
+        <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="0" Margin="0 80 0 0">
+            <Button x:Name="add" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Добавить"  Click="add_Click"/>
+            <Button x:Name="del"  BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Удалить" HorizontalAlignment="Center" Margin="15 0 0 0" Click="del_Click"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 -76 0 0">
+
+            <Button BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Назад" Click="Button_Click_1"/>
+            <Button BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Изменить"  Margin="15 0 0 0" Click="Button_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

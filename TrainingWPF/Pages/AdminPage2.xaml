@@ -1,0 +1,66 @@
+﻿<Page x:Class="TrainingWPF.Pages.AdminPage2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TrainingWPF.Pages"
+      mc:Ignorable="d" 
+      Background="#f5d2aa"
+      d:DesignHeight="410" d:DesignWidth="800"
+      Title="AdminPage2">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0" HorizontalAlignment="Center">
+            <TextBlock  Name="tbShowUser" MouseDown="TextBlock_MouseDown" Style="{StaticResource tbtEXT}" >Просмотр пользователей</TextBlock>
+            <TextBlock Name="tbSleepUser" MouseDown="tbSleepUser_MouseDown" Visibility="Collapsed" Style="{StaticResource tbtEXT2}">Скрыть просмотр<LineBreak></LineBreak>      пользователей</TextBlock>
+        </DockPanel>
+        <StackPanel Grid.Column="0" Margin="0 30 0 0">
+            <GroupBox Header="Сортировка фамилий" Style="{StaticResource gpText}">
+                <ComboBox Name="SortCombobox" SelectionChanged="SortCombobox_SelectionChanged">
+                    <ComboBoxItem  Content="По возрастанию"/>
+                    <ComboBoxItem  Content="По убыванию"/>
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Фильтр пола" Style="{StaticResource gpText}">
+                <ComboBox Name="cmbGender" SelectionChanged="cmbGender_SelectionChanged">
+                    <ComboBoxItem Content="Мужской"/>
+                    <ComboBoxItem Content="Женский"/>
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Фильтр по городам" Style="{StaticResource gpText}">
+                <ComboBox Name="cmbCity" SelectionChanged="cmbCity_SelectionChanged">
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Элемент поиска" Style="{StaticResource gpText}">
+                <GroupBox.ToolTip>
+                    <TextBlock>
+                        Поиск по фамилии,имени или логину
+                    </TextBlock>
+                </GroupBox.ToolTip>
+                <TextBox Name="tbFiltres" TextChanged="TextBox_TextChanged">
+                </TextBox>
+            </GroupBox>
+            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Сброс фильтра" Click="Button_Click"></Button>
+            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Заказы" Click="Button_Click_1"/>
+            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Назад" Click="Button_Click_2"/>
+            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Личный кабинет" Click="Button_Click_3"/>
+        </StackPanel>
+        <DataGrid Background="#f5d2aa" Name="dg" ColumnWidth="*" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Height="400" AutoGenerateColumns="False"  CanUserAddRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" MaxWidth="80" MinWidth="80" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Имя" MaxWidth="80" MinWidth="80" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Отчество" MaxWidth="80" MinWidth="80"  Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Логин" MaxWidth="80" MinWidth="80" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пол"  MaxWidth="60" MinWidth="60" Binding="{Binding GenderTable.gender}"/>
+                <DataGridTextColumn Header="Страна" MaxWidth="80" MinWidth="80" Binding="{Binding Country.nameCountry}"/>
+                <DataGridTextColumn Header="Город" MaxWidth="140" MinWidth="140" Binding="{Binding City.nameCity}"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+    </Grid>
+</Page>
