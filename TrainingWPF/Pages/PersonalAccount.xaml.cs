@@ -291,47 +291,15 @@ namespace TrainingWPF.Pages
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                int genderList = 0;
-                if (cmbGender.SelectedItem != null)
-                {
-                    ComboBoxItem comboBoxItem = (ComboBoxItem)cmbGender.SelectedItem;
-                    switch (comboBoxItem.Content)
-                    {
-                        case "Мужской":
-                            {
-                                genderList = 1;
-                                break;
-                            }
-                        case "Женский":
-                            {
-                                genderList = 2;
-                                break;
-                            }
-                    }
-
-                }
 
 
-                
+            user.IdGender = cmbGender.SelectedIndex;
+            user.idCity = cmbCity.SelectedIndex;
+            DataBase.tbE.SaveChanges();
+            MessageBox.Show("ок");
 
 
-                Users users = new Users()
-                {
-                    idCity = (int)cmbCity.SelectedItem,
 
-
-                    IdGender = genderList
-                };
-                MessageBox.Show("ок");
-                DataBase.tbE.Users.Add(users);
-                DataBase.tbE.SaveChanges();
-            }
-            catch
-            {
-
-            }
         }
     }
 }
