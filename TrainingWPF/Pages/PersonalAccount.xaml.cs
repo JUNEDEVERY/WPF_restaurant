@@ -74,11 +74,10 @@ namespace TrainingWPF.Pages
             cmbCity.SelectedValue = DataBase.tbE.City.FirstOrDefault(x => x.idCity == user.idCity).idCity;
             cmbCountry.SelectedValue = DataBase.tbE.Country.FirstOrDefault(x => x.idCountry == user.idCountry).idCountry;
             cmbGender.SelectedValue = DataBase.tbE.GenderTable.FirstOrDefault(x => x.IdGender == user.IdGender).IdGender;
-            List<UserPhoto> userPhotos = DataBase.tbE.UserPhoto.Where(x => x.idPhoto == user.MainPhotoid).ToList();
-            if (userPhotos.Count != 0)
+            if (user.photo != null)
             {
 
-                byte[] Bar = userPhotos.FirstOrDefault().photoBinary;   // считываем изображение из базы (считываем байтовый массив двоичных данных) - выбираем последнее добавленное изображение
+                byte[] Bar = user.photo;   // считываем изображение из базы (считываем байтовый массив двоичных данных) - выбираем последнее добавленное изображение
                 showIMG(Bar, nullPhoto);  // отображаем картинку
             }
 
@@ -103,8 +102,34 @@ namespace TrainingWPF.Pages
 
         private void openGallery_Click(object sender, RoutedEventArgs e)
         {
-            WindowChangePhotoGallery windowChangePhotoGallery = new WindowChangePhotoGallery(user);
-            windowChangePhotoGallery.ShowDialog();
+            //userId = user.id_client;
+            WindowChangePhotoGallery window = new WindowChangePhotoGallery(user);
+            window.Show();
+
+            window.Closing += (obj, args) =>
+            {
+                if (user.photo != null)
+                {
+                    byte[] Barr = user.photo;
+                    BitmapImage Bim = new BitmapImage();
+                    using (MemoryStream MS = new MemoryStream(Barr))
+                    {
+                        Bim.BeginInit();
+                        Bim.StreamSource = MS;
+                        Bim.CacheOption = BitmapCacheOption.OnLoad;
+                        Bim.EndInit();
+                    }
+                    nullPhoto.Source = Bim;
+                    nullPhoto.Stretch = Stretch.Uniform;
+                }
+                else
+                {
+                    string path = Environment.CurrentDirectory;
+                    path = path.Replace("bin\\Debug", "Resources\\nullphoto.jpg");
+                    nullPhoto.Source = BitmapFrame.Create(new Uri(path));
+                }
+            };
+
 
         }
 
@@ -293,8 +318,8 @@ namespace TrainingWPF.Pages
         {
 
 
-            user.IdGender = cmbGender.SelectedIndex;
-            user.idCity = cmbCity.SelectedIndex;
+            user.IdGender = cmbGender.SelectedIndex + 1;
+            user.idCity = cmbCity.SelectedIndex + 1;
             DataBase.tbE.SaveChanges();
             MessageBox.Show("ок");
 

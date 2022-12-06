@@ -55,11 +55,11 @@ namespace TrainingWPF.Pages
               
                 int index = Convert.ToInt32(lvGallery.SelectedValue);
                 UserPhoto photo = DataBase.tbE.UserPhoto.FirstOrDefault(x => x.id_client == user.id_client  && x.idPhoto == index);
-                user.MainPhotoid = photo.idPhoto;
+                user.photo = photo.photoBinary;
 
                 DataBase.tbE.SaveChanges();
                 MessageBox.Show("Фото изменено");
-                //this.Close();
+                this.Close();
                  
             }
             catch
