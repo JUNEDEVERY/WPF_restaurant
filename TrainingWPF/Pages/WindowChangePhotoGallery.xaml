@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TrainingWPF.Pages"
         mc:Ignorable="d"
         Title="Изменение аватарки" Height="505" Width="600"  WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid       Background="#f5d2aa">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
 
@@ -14,7 +14,7 @@
 
 
         </Grid.RowDefinitions>
-        <ListView Name="lvGallery" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="350">
+        <ListView   Background="#f5d2aa" Name="lvGallery" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="350">
         <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel>

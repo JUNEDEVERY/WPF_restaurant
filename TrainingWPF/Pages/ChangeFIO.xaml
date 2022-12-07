@@ -15,18 +15,18 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Margin="0 0 0 0">
-            <GroupBox Header="Ваша фамилия">
-                <TextBox Name="tbSurname"></TextBox>
+            <GroupBox Header="Ваша фамилия" Style="{StaticResource gpText}">
+                <TextBox MaxLength="20" Name="tbSurname"></TextBox>
             </GroupBox>
-            <GroupBox Header="Ваше имя">
-                <TextBox Name="tbName"></TextBox>
+            <GroupBox Header="Ваше имя" Style="{StaticResource gpText}">
+                <TextBox  MaxLength="15"  Name="tbName"></TextBox>
             </GroupBox>
-            <GroupBox Header="Ваше отчество">
-                <TextBox Name="tbPatronymic"></TextBox>
+            <GroupBox Header="Ваше отчество" Style="{StaticResource gpText}">
+                <TextBox  MaxLength="20" Name="tbPatronymic"></TextBox>
             </GroupBox>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-            <Button Name="change" Click="change_Click" Content="Изменить персональные данные" />
+            <Button Name="change" Click="change_Click" Content="Изменить персональные данные"  Template="{StaticResource btnTemp}"/>
         </StackPanel>
     </Grid>
 </Window>

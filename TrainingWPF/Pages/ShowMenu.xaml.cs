@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TrainingWPF.ModelDB;
 using TrainingWPF.Pages;
+using Menu = TrainingWPF.ModelDB.Menu;
 
 namespace TrainingWPF.Pages
 {
@@ -33,8 +34,16 @@ namespace TrainingWPF.Pages
         public ShowMenu(int u_id)
         {
             InitializeComponent();
+
             lVMenu.ItemsSource = DataBase.tbE.Menu.ToList();
             this.u_id = u_id;
+
+            //cmbFiltres.Items.Add("Все");
+            //cmbFiltres.Items.Add("Все");
+            //cmbFiltres.Text = "";
+            //sortCmb.Text = "";
+
+
 
 
         }
@@ -71,7 +80,7 @@ namespace TrainingWPF.Pages
             try
             {
 
-                if(Zakaz.Items.Count != 0)
+                if (Zakaz.Items.Count != 0)
                 {
 
                     Zakaz zakaz = new Zakaz()
@@ -100,13 +109,13 @@ namespace TrainingWPF.Pages
                 }
 
 
-               
-               
+
+
                 else
                 {
                     MessageBox.Show("Ваш заказ пуст. ");
                 }
-                
+
 
 
 
@@ -152,6 +161,128 @@ namespace TrainingWPF.Pages
                 MessageBox.Show(" Вы не выбрали элемент для удаления", "Возникла ошибка при удалении товара из корзины", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+        void filtres()
+        {
+            try
+            {
+                List<Menu> menus = DataBase.tbE.Menu.ToList();
+                if (sortCmb != null)
+                if (sortCmb.SelectedIndex != -1)
+                {
+
+                    ComboBoxItem comboBoxItem = (ComboBoxItem)sortCmb.SelectedItem;
+                    switch (comboBoxItem.Content)
+                    {
+                        case "По возрастанию цены":
+                            {
+                                menus = menus.OrderBy(x => x.price).ToList();
+                                break;
+                            }
+                        case "По убыванию цены":
+                            {
+                                menus = menus.OrderByDescending(x => x.price).ToList();
+                                break;
+                            }
+                        case "По наименованию от А до Я":
+                            {
+                                menus = menus.OrderBy(x => x.titile).ToList();
+                                break;
+                            }
+                        case "По наименованию от Я до А":
+                            {
+                                menus = menus.OrderByDescending(x => x.titile).ToList();
+                                break;
+                            }
+
+
+                    }
+                }
+
+                if (cmbFiltres.SelectedIndex != -1)
+                {
+                    ComboBoxItem comboBox = (ComboBoxItem)cmbFiltres.SelectedItem;
+                    switch (comboBox.Content)
+                    {
+                        case "Менее 500 Р":
+                            {
+                                menus = menus.Where(x => x.price <= 500).ToList();
+                                break;
+                            }
+                        case "501 - 1000 Р":
+                            {
+                                menus = menus.Where(x => x.price >= 501 && x.price <= 1000).ToList();
+                                break;
+                            }
+                        case "1001 - 2000 Р":
+                            {
+                                menus = menus.Where(x => x.price >= 1001 && x.price <= 2000).ToList();
+                                break;
+                            }
+                        case "2001 - 4000 Р":
+                            {
+                                menus = menus.Where(x => x.price >= 2001 && x.price <= 4000).ToList();
+                                break;
+                            }
+                        case "4001 - 7000 Р":
+                            {
+                                menus = menus.Where(x => x.price >= 4001 && x.price <= 7000).ToList();
+                                break;
+                            }
+                        case "Более 7000 Р":
+                            {
+                                menus = menus.Where(x => x.price >= 7001).ToList();
+                                break;
+                            }
+                        default:
+                            menus = menus;
+                            break;
+
+                    }
+                }
+                if (cb1 != null)
+                {
+
+                    if (cb1.IsChecked == true)
+                    {
+                        menus = menus.Where(x => x.Photo != null).ToList();
+                    }
+                }
+                if (tbFiltres != null)
+                {
+
+                    if (tbFiltres.Text != "")
+                    {
+                        menus = menus.Where(x => x.titile.ToLower().Contains(tbFiltres.Text.ToLower()) || x.description.ToLower().Contains(tbFiltres.Text.ToLower())).ToList();
+                    }
+                }
+
+                lVMenu.ItemsSource = menus;
+            }
+            catch
+            {
+
+            }
+
+            
+        }
+        private void cb1_Checked(object sender, RoutedEventArgs e)
+        {
+            filtres();
+        }
+        private void tbFiltres_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            filtres();
+        }
+
+        private void sortCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            filtres();
+        }
+
+        private void cmbFiltres_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            filtres();
         }
     }
 

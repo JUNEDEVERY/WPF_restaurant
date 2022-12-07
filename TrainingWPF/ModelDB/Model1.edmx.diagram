@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dc3ef6d9175440af9ad397a706128d79" Name="Diagram1">
+      <Diagram DiagramId="dc3ef6d9175440af9ad397a706128d79" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="Model.Bludo" Width="1.5" PointX="7.75" PointY="8.25" />
-        <EntityTypeShape EntityType="Model.City" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="Model.Country" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="Model.GenderTable" Width="1.5" PointX="0.75" PointY="10" />
-        <EntityTypeShape EntityType="Model.Menu" Width="1.5" PointX="5.25" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.Napitok" Width="1.5" PointX="5.25" PointY="11.25" />
-        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.City" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="Model.Country" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="Model.GenderTable" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.Menu" Width="1.5" PointX="5.25" PointY="12.5" />
+        <EntityTypeShape EntityType="Model.Napitok" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3" PointY="9.75" />
         <EntityTypeShape EntityType="Model.UserPhoto" Width="1.5" PointX="5.25" PointY="7.375" />
         <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="3.125" />

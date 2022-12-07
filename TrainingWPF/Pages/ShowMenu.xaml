@@ -13,15 +13,16 @@ Title="ShowMenu" >
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="85*"/>
             <RowDefinition Height="15*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="1.8*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView BorderThickness="0" Name="lVMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#f5d2aa" Height="400" Margin="0,-20,2,70" Grid.RowSpan="2">
+        <ListView BorderThickness="0" Name="lVMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#f5d2aa" Margin="0,0,2,0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center" />
@@ -49,25 +50,56 @@ Title="ShowMenu" >
 
         </ListView>
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
-            <ListView Background="#f5d2aa" x:Name="Zakaz" Height="300" BorderThickness="0">
+            <StackPanel>
+                <GroupBox Style="{StaticResource gpText}" Header="Фильтрация цен">
+                    <ComboBox Name="cmbFiltres" SelectionChanged="cmbFiltres_SelectionChanged">
+                        <ComboBoxItem IsSelected="True" Content="По умолчанию"></ComboBoxItem>
+                        <ComboBoxItem Content="Менее 500 Р"></ComboBoxItem>
+                        <ComboBoxItem Content="501 - 1000 Р"></ComboBoxItem>
+                        <ComboBoxItem Content="1001 - 2000 Р" ></ComboBoxItem>
+                        <ComboBoxItem Content="2001 - 4000 Р" ></ComboBoxItem>
+                        <ComboBoxItem Content="4001 - 7000 Р"></ComboBoxItem>
+                        <ComboBoxItem Content="Более 7000 Р"></ComboBoxItem>
+                    </ComboBox>
+
+                </GroupBox>
+                <GroupBox Style="{StaticResource gpText}" Header="Сортировка">
+                    <ComboBox Name="sortCmb" SelectionChanged="sortCmb_SelectionChanged">
+                        <ComboBoxItem IsSelected="True" Content="Все"/>
+                        <ComboBoxItem Content="По возрастанию цены"/>
+                        <ComboBoxItem Content="По убыванию цены"/>
+                        <ComboBoxItem Content="По наименованию от А до Я"/>
+                        <ComboBoxItem Content="По наименованию от Я до А"/>
+                        <!--// с картинкой-->
+
+                    </ComboBox>
+                </GroupBox>
+              
+                
+
+                <CheckBox  Margin="5 0 0 0" HorizontalAlignment="Left" Name="cb1" Checked="cb1_Checked" Unchecked="cb1_Checked" >Только с фото</CheckBox>
+                <GroupBox  Header="Поиск по наименованию" Style="{StaticResource gpText}">
+                    <TextBox Name="tbFiltres" TextChanged="tbFiltres_TextChanged">
+                    </TextBox>
+                </GroupBox>
+
+            </StackPanel>
+
+            <ListView Background="#f5d2aa" x:Name="Zakaz" Height="200" BorderThickness="0">
 
             </ListView>
             <StackPanel Margin="0 10 0 0">
                 <Button Margin="0 5 0 0" Name="AddOrder" Content="Оформить заказ" Template="{StaticResource btnTemp}" Click="AddOrder_Click"/>
-                <StackPanel Margin="0 15 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Margin="0 5 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Name="GoBack" Content="Назад" Template="{StaticResource btnTemp}" Click="GoBack_Click"/>
                     <Button Margin="5 0 0 0" Name="DeletePart" Content="Удалить" Template="{StaticResource btnTemp}" Click="DeletePart_Click"/>
                 </StackPanel>
-
+                
 
 
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <ComboBox>
-                
-            </ComboBox>
-        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0 0 248 0"/>
 
     </Grid>
 </Page>

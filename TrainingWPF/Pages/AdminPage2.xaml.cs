@@ -117,7 +117,8 @@ namespace TrainingWPF.Pages
             dg.ItemsSource = DataBase.tbE.Users.ToList();
             if (tbFiltres.Text != "")
             {
-                dg.ItemsSource = DataBase.tbE.Users.Where(x => x.Surname.Contains(tbFiltres.Text) || x.Name.Contains(tbFiltres.Text) || x.Login.Contains(tbFiltres.Text)).ToList();
+                dg.ItemsSource = 
+                    DataBase.tbE.Users.Where(x => x.Surname.Contains(tbFiltres.Text) || x.Name.Contains(tbFiltres.Text) || x.Login.Contains(tbFiltres.Text)).ToList();
             }
         }
 

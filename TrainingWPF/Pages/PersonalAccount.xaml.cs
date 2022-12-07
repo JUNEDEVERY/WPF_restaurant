@@ -53,10 +53,7 @@ namespace TrainingWPF.Pages
         {
             InitializeComponent();
             this.user = user;
-            nullPhoto.MaxHeight = 150;
-            nullPhoto.MaxWidth = 150;
-            nullPhoto.MinHeight = 150;
-            nullPhoto.MinWidth = 150;
+         
 
             Surname.Text = user.Surname;
             Name.Text = user.Name;
@@ -142,9 +139,10 @@ namespace TrainingWPF.Pages
                 NavigationService.Navigate(new AdminPage2(user));
 
             }
+          
             else
             {
-                NavigationService.GoBack();
+                NavigationService.Navigate(new ShowMenu(user.id_client));
             }
 
         }
