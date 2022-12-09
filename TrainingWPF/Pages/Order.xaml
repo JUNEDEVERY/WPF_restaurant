@@ -16,7 +16,7 @@
 
     <Grid Background="#f5d2aa">
         <StackPanel Orientation="Vertical">
-            <ListView Name="lVMenu1" Height="350" Background="#f5d2aa">
+            <ListView Name="lVMenu1" Height="290" Background="#f5d2aa">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate >
                         <WrapPanel HorizontalAlignment="Center"></WrapPanel>
@@ -74,12 +74,29 @@
                 </StackPanel>
 
             </StackPanel>
-            <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
+                <GroupBox Header="Введите количество записей на одной странице">
+                    <TextBox Name="txtPageCount" TextChanged="txtPageCount_TextChanged"/>
+                </GroupBox>
+                <TextBlock Name="txtBackPage" Uid="back" Text="в начало" MouseDown="txtBackPage_MouseDown"/>
+                <TextBlock Name="txtPrev" Uid="prev" Text=" &lt; " MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txtNext" Uid="next" Text=" &gt;" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txtNextPage" Uid="next" Text="в конец" MouseDown="txtNextPage_MouseDown"/>
+
             </StackPanel>
-            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" >
+            <StackPanel >
+                <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" x:Name="btngoBack" Click="btngoBack_Click" Content="Назад" />
+
+            </StackPanel>
+            <StackPanel  >
 
            
-                <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" x:Name="btngoBack" Click="btngoBack_Click" Content="Назад" />
+               
             </StackPanel>
            
         </StackPanel>
