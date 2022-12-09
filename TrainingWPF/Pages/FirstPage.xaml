@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal" Margin ="0 30 0 0" >
-            <Button Name="btnNext" Template="{StaticResource btnTemp}" Click="btnNext_Click" Content="Авторизация" Width="100" Height="30" />
-            <Button Name="btnReg" Click="btnReg_Click" Content="Регистрация" Width="100" Margin="15 0 0 0" Template="{StaticResource btnTemp}" />
+            <Button  Cursor="Hand" Name="btnNext" Template="{StaticResource btnTemp}" Click="btnNext_Click" Content="Авторизация" Width="100" Height="30" />
+            <Button Cursor="Hand" Name="btnReg" Click="btnReg_Click" Content="Регистрация" Width="100" Margin="15 0 0 0" Template="{StaticResource btnTemp}" />
         </WrapPanel>
 
 

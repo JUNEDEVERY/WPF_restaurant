@@ -139,12 +139,12 @@
 
 
             <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
-                <Button Margin="0 15 0 10" Template="{StaticResource btnTemp}" Name="btnReg" Click="btnReg_Click" Content="Зарегистрироваться"/>
-                <Button Template="{StaticResource btnTemp}" Name="btnBack" Click="btnBack_Click" Content="Назад"/>
+                <Button Cursor="Hand" Margin="0 15 0 10" Template="{StaticResource btnTemp}" Name="btnReg" Click="btnReg_Click" Content="Зарегистрироваться"/>
+                <Button Cursor="Hand" Template="{StaticResource btnTemp}" Name="btnBack" Click="btnBack_Click" Content="Назад"/>
                
             </StackPanel>
             <StackPanel Margin="0 15 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock MouseDown="TextBlock_MouseDown">У меня есть аккаунт</TextBlock>
+                <TextBlock Cursor="Hand" MouseDown="TextBlock_MouseDown">У меня есть аккаунт</TextBlock>
             </StackPanel>
 
 
