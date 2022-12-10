@@ -33,10 +33,10 @@
 
         </StackPanel>
         <StackPanel  Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical" Margin="0 50 0 0">
-            <Button Margin="0 0 0 10" Template="{StaticResource btnTemp}" Name="btnAuth" Click="btnAuth_Click" Content="Авторизация" ></Button>
-            <Button Template="{StaticResource btnTemp}" Name="btngoBack" Click="btngoBack_Click" Content="Назад"></Button>
+            <Button Cursor="Hand" Margin="0 0 0 10" Template="{StaticResource btnTemp}" Name="btnAuth" Click="btnAuth_Click" Content="Авторизация" ></Button>
+            <Button Cursor="Hand" Template="{StaticResource btnTemp}" Name="btngoBack" Click="btngoBack_Click" Content="Назад"></Button>
             <StackPanel Margin="0 15 0 0">
-                <TextBlock MouseDown="TextBlock_MouseDown">У меня нет аккаунта</TextBlock>
+                <TextBlock Cursor="Hand" MouseDown="TextBlock_MouseDown">У меня нет аккаунта</TextBlock>
             </StackPanel>
         </StackPanel>
     

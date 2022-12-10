@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\DataBase.cs" />
     <Compile Include="Classes\FrameWork.cs" />
+    <Compile Include="Classes\PageChange.cs" />
     <Compile Include="Classes\ZakazPartial.cs" />
     <Compile Include="ModelDB\Bludo.cs">
       <DependentUpon>Model1.tt</DependentUpon>

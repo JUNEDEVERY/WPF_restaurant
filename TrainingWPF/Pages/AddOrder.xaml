@@ -13,10 +13,10 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-           
+
         </Grid.RowDefinitions>
         <StackPanel Margin="0,0,0,5">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >  
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                 <GroupBox Header="Выбор блюда" Style="{StaticResource gpText}" Width="250" >
                     <ComboBox Name="cmbBludo" SelectionChanged="cmbBludo_SelectionChanged"/>
                 </GroupBox>
@@ -24,13 +24,13 @@
                     <ComboBox Name="STATUS"/>
                 </GroupBox>
             </StackPanel>
-            
+
             <GroupBox Header="Введите количество " Style="{StaticResource gpText}" Width="500">
                 <TextBox Name="tb1" MaxLength="2 " KeyUp="TextBox_KeyUp" >
 
                 </TextBox>
             </GroupBox>
-           
+
         </StackPanel>
         <StackPanel Grid.Row="1">
             <ListView Name="lVMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="300" Width="500" >
@@ -43,14 +43,14 @@
             </ListView>
         </StackPanel>
         <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="0" Margin="0 80 0 0">
-            <Button x:Name="add" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Добавить"  Click="add_Click"/>
-            <Button x:Name="del"  BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Удалить" HorizontalAlignment="Center" Margin="15 0 0 0" Click="del_Click"/>
+            <Button Cursor="Hand" x:Name="add" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Добавить"  Click="add_Click"/>
+            <Button Cursor="Hand"  x:Name="del"  BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Удалить" HorizontalAlignment="Center" Margin="15 0 0 0" Click="del_Click"/>
 
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 -76 0 0">
 
-            <Button BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Назад" Click="Button_Click_1"/>
-            <Button BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Изменить"  Margin="15 0 0 0" Click="Button_Click"/>
+            <Button Cursor="Hand" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Назад" Click="Button_Click_1"/>
+            <Button Cursor="Hand" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Изменить"  Margin="15 0 0 0" Click="Button_Click"/>
 
         </StackPanel>
     </Grid>

@@ -44,10 +44,10 @@
                 <TextBox Name="tbFiltres" TextChanged="TextBox_TextChanged">
                 </TextBox>
             </GroupBox>
-            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Сброс фильтра" Click="Button_Click"></Button>
-            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Заказы" Click="Button_Click_1"/>
-            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Назад" Click="Button_Click_2"/>
-            <Button Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Личный кабинет" Click="Button_Click_3"/>
+            <Button Cursor="Hand" Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Сброс фильтра" Click="Button_Click"></Button>
+            <Button Cursor="Hand"  Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Заказы" Click="Button_Click_1"/>
+            <Button Cursor="Hand"  Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Назад" Click="Button_Click_2"/>
+            <Button Cursor="Hand" Margin="0 15 0 0" Width="150" BorderThickness="0.1" Template="{StaticResource btnTemp}" Content="Личный кабинет" Click="Button_Click_3"/>
         </StackPanel>
         <DataGrid Background="#f5d2aa" Name="dg" ColumnWidth="*" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Height="400" AutoGenerateColumns="False"  CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>

@@ -89,10 +89,10 @@ Title="ShowMenu" >
 
             </ListView>
             <StackPanel Margin="0 10 0 0">
-                <Button Margin="0 5 0 0" Name="AddOrder" Content="Оформить заказ" Template="{StaticResource btnTemp}" Click="AddOrder_Click"/>
+                <Button Cursor="Hand" Margin="0 5 0 0" Name="AddOrder" Content="Оформить заказ" Template="{StaticResource btnTemp}" Click="AddOrder_Click"/>
                 <StackPanel Margin="0 5 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Name="GoBack" Content="Назад" Template="{StaticResource btnTemp}" Click="GoBack_Click"/>
-                    <Button Margin="5 0 0 0" Name="DeletePart" Content="Удалить" Template="{StaticResource btnTemp}" Click="DeletePart_Click"/>
+                    <Button Cursor="Hand" Name="GoBack" Content="Назад" Template="{StaticResource btnTemp}" Click="GoBack_Click"/>
+                    <Button Cursor="Hand" Margin="5 0 0 0" Name="DeletePart" Content="Удалить" Template="{StaticResource btnTemp}" Click="DeletePart_Click"/>
                 </StackPanel>
                 
 

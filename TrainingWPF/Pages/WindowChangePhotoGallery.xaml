@@ -29,10 +29,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0"  Content="Изменить" Name="btnChange" Click="btnChange_Click"/>
-            <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" Content="Добавить" Name="btnAdd" Click="btnAdd_Click"/>
-            <Button Template="{StaticResource btnTemp}" Margin="0 0 15 0" Content="Удалить" Name="btnDelete" Click="btnDelete_Click"/>
-            <Button Template="{StaticResource btnTemp}"  Margin="0 0 15 0" Content="Назад" Name="btnBack" Click="btnBack_Click"/>
+            <Button Cursor="Hand" Template="{StaticResource btnTemp}" Margin="0 0 15 0"  Content="Изменить" Name="btnChange" Click="btnChange_Click"/>
+            <Button Cursor="Hand" Template="{StaticResource btnTemp}" Margin="0 0 15 0" Content="Добавить" Name="btnAdd" Click="btnAdd_Click"/>
+            <Button Cursor="Hand" Template="{StaticResource btnTemp}" Margin="0 0 15 0" Content="Удалить" Name="btnDelete" Click="btnDelete_Click"/>
+            <Button Cursor="Hand" Template="{StaticResource btnTemp}"  Margin="0 0 15 0" Content="Назад" Name="btnBack" Click="btnBack_Click"/>
 
         </StackPanel>
     </Grid>
