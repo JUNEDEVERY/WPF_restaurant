@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Margin="0 0 0 0">
             <GroupBox Header="Ваша фамилия" Style="{StaticResource gpText}">
-                <TextBox MaxLength="20" Name="tbSurname"></TextBox>
+                <TextBox chan MaxLength="20" Name="tbSurname"></TextBox>
             </GroupBox>
             <GroupBox Header="Ваше имя" Style="{StaticResource gpText}">
                 <TextBox  MaxLength="15"  Name="tbName"></TextBox>
