@@ -22,6 +22,7 @@ namespace TrainingWPF.Pages
     public partial class AdminPage2 : Page
     {
         Users users;
+       
 
         public AdminPage2(Users users)
         {
@@ -35,6 +36,7 @@ namespace TrainingWPF.Pages
             }
         }
 
+  
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
 

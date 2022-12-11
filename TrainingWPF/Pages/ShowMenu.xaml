@@ -52,7 +52,7 @@ Title="ShowMenu" >
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
             <StackPanel>
                 <GroupBox Style="{StaticResource gpText}" Header="Фильтрация цен">
-                    <ComboBox Name="cmbFiltres" SelectionChanged="cmbFiltres_SelectionChanged">
+                    <ComboBox Name="cmbFiltres" SelectionChanged="cmbFiltres_SelectionChanged" Cursor="Hand">
                         <ComboBoxItem IsSelected="True" Content="По умолчанию"></ComboBoxItem>
                         <ComboBoxItem Content="Менее 500 Р"></ComboBoxItem>
                         <ComboBoxItem Content="501 - 1000 Р"></ComboBoxItem>
@@ -64,7 +64,7 @@ Title="ShowMenu" >
 
                 </GroupBox>
                 <GroupBox Style="{StaticResource gpText}" Header="Сортировка">
-                    <ComboBox Name="sortCmb" SelectionChanged="sortCmb_SelectionChanged">
+                    <ComboBox Name="sortCmb" SelectionChanged="sortCmb_SelectionChanged" Cursor="Hand">
                         <ComboBoxItem IsSelected="True" Content="Все"/>
                         <ComboBoxItem Content="По возрастанию цены"/>
                         <ComboBoxItem Content="По убыванию цены"/>
@@ -74,12 +74,12 @@ Title="ShowMenu" >
 
                     </ComboBox>
                 </GroupBox>
-              
-                
 
-                <CheckBox  Margin="5 0 0 0" HorizontalAlignment="Left" Name="cb1" Checked="cb1_Checked" Unchecked="cb1_Checked" >Только с фото</CheckBox>
+
+
+                <CheckBox Cursor="Hand"  Margin="5 5 0 5" HorizontalAlignment="Left" Name="cb1" Checked="cb1_Checked" Unchecked="cb1_Checked" >Только с фото</CheckBox>
                 <GroupBox  Header="Поиск по наименованию" Style="{StaticResource gpText}">
-                    <TextBox Name="tbFiltres" TextChanged="tbFiltres_TextChanged">
+                    <TextBox Name="tbFiltres" TextChanged="tbFiltres_TextChanged" Cursor="IBeam">
                     </TextBox>
                 </GroupBox>
 
@@ -88,9 +88,9 @@ Title="ShowMenu" >
             <ListView Background="#f5d2aa" x:Name="Zakaz" Height="200" BorderThickness="0">
 
             </ListView>
-            <StackPanel Margin="0 10 0 0">
+            <StackPanel Margin="0 0 0 25">
                 <Button Cursor="Hand" Margin="0 5 0 0" Name="AddOrder" Content="Оформить заказ" Template="{StaticResource btnTemp}" Click="AddOrder_Click"/>
-                <StackPanel Margin="0 5 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Margin="0 5 0 25" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Cursor="Hand" Name="GoBack" Content="Назад" Template="{StaticResource btnTemp}" Click="GoBack_Click"/>
                     <Button Cursor="Hand" Margin="5 0 0 0" Name="DeletePart" Content="Удалить" Template="{StaticResource btnTemp}" Click="DeletePart_Click"/>
                 </StackPanel>

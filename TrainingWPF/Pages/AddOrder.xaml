@@ -18,15 +18,15 @@
         <StackPanel Margin="0,0,0,5">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                 <GroupBox Header="Выбор блюда" Style="{StaticResource gpText}" Width="250" >
-                    <ComboBox Name="cmbBludo" SelectionChanged="cmbBludo_SelectionChanged"/>
+                    <ComboBox Cursor="Hand" Name="cmbBludo" SelectionChanged="cmbBludo_SelectionChanged"/>
                 </GroupBox>
                 <GroupBox Header="Выберите статус или оставьте текущий" Width="250" Style="{StaticResource gpText}">
-                    <ComboBox Name="STATUS"/>
+                    <ComboBox Cursor="Hand" Name="STATUS"/>
                 </GroupBox>
             </StackPanel>
 
             <GroupBox Header="Введите количество " Style="{StaticResource gpText}" Width="500">
-                <TextBox Name="tb1" MaxLength="2 " KeyUp="TextBox_KeyUp" >
+                <TextBox Cursor="IBeam" Name="tb1" MaxLength="2 " KeyUp="TextBox_KeyUp" >
 
                 </TextBox>
             </GroupBox>

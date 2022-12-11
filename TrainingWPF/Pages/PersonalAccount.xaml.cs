@@ -27,12 +27,11 @@ namespace TrainingWPF.Pages
     /// </summary>
     public partial class PersonalAccount : Page
     {
-        Users user;
+        Users users;
 
-        int u_id;
+    
 
         List<Country> countryList = DataBase.tbE.Country.ToList();
-        List<Users> users = DataBase.tbE.Users.ToList();
         List<City> cityList = DataBase.tbE.City.ToList();
         List<GenderTable> genderList = DataBase.tbE.GenderTable.ToList();
         List<UserPhoto> userPhotos = DataBase.tbE.UserPhoto.ToList();
@@ -52,7 +51,7 @@ namespace TrainingWPF.Pages
         public PersonalAccount(Users user)
         {
             InitializeComponent();
-            this.user = user;
+            this.users = user;
          
 
             Surname.Text = user.Surname;
@@ -77,16 +76,24 @@ namespace TrainingWPF.Pages
                 byte[] Bar = user.photo;   // считываем изображение из базы (считываем байтовый массив двоичных данных) - выбираем последнее добавленное изображение
                 showIMG(Bar, nullPhoto);  // отображаем картинку
             }
+            if(user.idRole == 1)
+            {
+                btnMenu.Visibility = Visibility.Collapsed;
+            }
+            if (user.idRole == 2)
+            {
+                btnBack.Visibility = Visibility.Collapsed;
+            }
 
 
         }
 
         private void btnChange_Click(object sender, RoutedEventArgs e)
         {
-            List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == user.id_client).ToList();
+            List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == users.id_client).ToList();
             byte[] Bar = users1[count].photoBinary;
             showIMG(Bar, nullPhoto);
-            user.MainPhotoid = users1[count].idPhoto;
+            users.MainPhotoid = users1[count].idPhoto;
             DataBase.tbE.SaveChanges();
 
             MessageBox.Show("Фото изменено");
@@ -100,14 +107,14 @@ namespace TrainingWPF.Pages
         private void openGallery_Click(object sender, RoutedEventArgs e)
         {
             //userId = user.id_client;
-            WindowChangePhotoGallery window = new WindowChangePhotoGallery(user);
+            WindowChangePhotoGallery window = new WindowChangePhotoGallery(users);
             window.Show();
 
             window.Closing += (obj, args) =>
             {
-                if (user.photo != null)
+                if (users.photo != null)
                 {
-                    byte[] Barr = user.photo;
+                    byte[] Barr = users.photo;
                     BitmapImage Bim = new BitmapImage();
                     using (MemoryStream MS = new MemoryStream(Barr))
                     {
@@ -130,28 +137,12 @@ namespace TrainingWPF.Pages
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            Users users = new Users();
-            if (users.idRole == 1)
-            {
-                NavigationService.Navigate(new AdminPage2(user));
-
-            }
-          
-            else
-            {
-                NavigationService.Navigate(new ShowMenu(user.id_client));
-            }
-
-        }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ChangeFIO change = new ChangeFIO(user);
+            ChangeFIO change = new ChangeFIO(users);
             change.ShowDialog();
-            NavigationService.Navigate(new PersonalAccount(user));
+            NavigationService.Navigate(new PersonalAccount(users));
         }
 
         private void changePhoto_Click(object sender, RoutedEventArgs e)
@@ -159,7 +150,7 @@ namespace TrainingWPF.Pages
             try
             {
                 UserPhoto userPhoto = new UserPhoto();
-                userPhoto.id_client = user.id_client;
+                userPhoto.id_client = users.id_client;
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.ShowDialog();
                 string path = openFileDialog.FileName;
@@ -168,7 +159,7 @@ namespace TrainingWPF.Pages
                 byte[] Barray = (byte[])IC.ConvertTo(SDI, typeof(byte[]));
                 userPhoto.photoBinary = Barray;  // заполяем поле photoBinary полученным байтовым массивом
                 DataBase.tbE.UserPhoto.Add(userPhoto);  // добавляем объект в таблицу БД
-                user.MainPhotoid = userPhoto.idPhoto;
+                users.MainPhotoid = userPhoto.idPhoto;
                 DataBase.tbE.SaveChanges();  // созраняем изменения в БД
                 MessageBox.Show("Фото добавлено");
                 showIMG(Barray, nullPhoto);
@@ -192,7 +183,7 @@ namespace TrainingWPF.Pages
                     foreach (string file in openFileDialog.FileNames)
                     {
                         UserPhoto userPhoto = new UserPhoto();
-                        userPhoto.id_client = user.id_client;
+                        userPhoto.id_client = users.id_client;
                         System.Drawing.Image SDI = System.Drawing.Image.FromFile(file);  // создаем объект для загрузки изображения в базу
                         ImageConverter IC = new ImageConverter();  // создаем конвертер для перевода картинки в двоичный формат
                         byte[] Barray = (byte[])IC.ConvertTo(SDI, typeof(byte[]));  // создаем байтовый массив для хранения картинки
@@ -217,7 +208,7 @@ namespace TrainingWPF.Pages
 
         private void backPicture_Click(object sender, RoutedEventArgs e)
         {
-            List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == user.id_client).ToList();
+            List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == users.id_client).ToList();
             count--;
             if (goPicture.IsEnabled == false)
             {
@@ -239,7 +230,7 @@ namespace TrainingWPF.Pages
 
         private void goPicture_Click(object sender, RoutedEventArgs e)
         {
-            List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == user.id_client).ToList();
+            List<UserPhoto> users1 = DataBase.tbE.UserPhoto.Where(x => x.id_client == users.id_client).ToList();
             count++;
             if (backPicture.IsEnabled == false)
             {
@@ -261,7 +252,7 @@ namespace TrainingWPF.Pages
         {
             try
             {
-                WindowChangePasswordLogin windowChangePasswordLogin = new WindowChangePasswordLogin(user);
+                WindowChangePasswordLogin windowChangePasswordLogin = new WindowChangePasswordLogin(users);
                 windowChangePasswordLogin.ShowDialog();
 
             }
@@ -274,7 +265,7 @@ namespace TrainingWPF.Pages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            WindowChangePhotoGallery windowChangePhotoGallery = new WindowChangePhotoGallery(user);
+            WindowChangePhotoGallery windowChangePhotoGallery = new WindowChangePhotoGallery(users);
             windowChangePhotoGallery.Show();
 
             //if (userPhotos.Count != 0)
@@ -285,9 +276,9 @@ namespace TrainingWPF.Pages
             //}
             windowChangePhotoGallery.Closed += (obj, args) =>
             {
-                if (user.photo != null)
+                if (users.photo != null)
                 {
-                    byte[] bytes = user.photo;
+                    byte[] bytes = users.photo;
                     BitmapImage bitmapImage = new BitmapImage();
                     using (MemoryStream memory = new MemoryStream(bytes))
                     {
@@ -316,12 +307,29 @@ namespace TrainingWPF.Pages
         {
 
 
-            user.IdGender = cmbGender.SelectedIndex + 1;
-            user.idCity = cmbCity.SelectedIndex + 1;
+            users.IdGender = cmbGender.SelectedIndex + 1;
+            users.idCity = cmbCity.SelectedIndex + 1;
             DataBase.tbE.SaveChanges();
-            MessageBox.Show("ок");
+            MessageBox.Show("Изменения внесены!");
 
 
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (users.idRole == 1)
+            {
+                NavigationService.Navigate(new AdminPage2(users));
+
+            }
+        }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+            NavigationService.Navigate(new ShowMenu(users.id_client));
 
         }
     }

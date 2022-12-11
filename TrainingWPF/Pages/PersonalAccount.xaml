@@ -35,7 +35,7 @@
         </StackPanel>
         <StackPanel  Grid.Row="1">
 
-            <Image  Name="nullPhoto" Height="150" Width="150" Source="/Resources/nullphoto.png" ></Image>
+            <Image Cursor="None"  Name="nullPhoto" Height="150" Width="150" Source="/Resources/nullphoto.png" ></Image>
             <StackPanel Margin="0 5 0 0" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Cursor="Hand" Name="changePhoto" Click="changePhoto_Click" Template="{StaticResource btnTemp}" Content="Изменить фото"></Button>
                 <Button Cursor="Hand" Name="openGallery" Template="{StaticResource btnTemp}" Click="openGallery_Click" Content="Открыть галерею"></Button>
@@ -61,14 +61,14 @@
 
             </GroupBox>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <TextBlock  MouseDown="TextBlock_MouseDown" Margin="0 0 35 0" >Изменить ФИО</TextBlock>
+                <TextBlock Cursor="Hand" MouseDown="TextBlock_MouseDown" Margin="0 0 35 0" >Изменить ФИО</TextBlock>
                 <TextBlock ></TextBlock>
-                <TextBlock MouseDown="TextBlock_MouseDown_1" >Изменить логин и пароль</TextBlock>
+                <TextBlock Cursor="Hand" MouseDown="TextBlock_MouseDown_1" >Изменить логин и пароль</TextBlock>
             </StackPanel>
 
-            <ComboBox Background="#f5d2aa" Margin="0 5 0 0" Name="cmbCity"></ComboBox>
-            <ComboBox  Background="#f5d2aa" Margin="0 5 0 0" Name="cmbCountry"></ComboBox>
-            <ComboBox Background="#f5d2aa" Margin="0 5 0 0" Name="cmbGender"></ComboBox>
+            <ComboBox Cursor="Hand" Background="#f5d2aa" Margin="0 5 0 0" Name="cmbCity"></ComboBox>
+            <ComboBox Cursor="Hand"  Background="#f5d2aa" Margin="0 5 0 0" Name="cmbCountry"></ComboBox>
+            <ComboBox Cursor="Hand" Background="#f5d2aa" Margin="0 5 0 0" Name="cmbGender"></ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -76,13 +76,13 @@
 
             <StackPanel Orientation="Horizontal">
                 <Button Cursor="Hand" Content="Сохранить" Click="Button_Click_2" Template="{StaticResource btnTemp}"/>
-                <Button  Cursor="Hand" Content="Меню" Click="Button_Click" Template="{StaticResource btnTemp}"/>
+                <Button x:Name="btnMenu"  Cursor="Hand" Content="Меню" Click="btnMenu_Click" Template="{StaticResource btnTemp}"/>
             </StackPanel>
 
 
         </StackPanel >
         <StackPanel Grid.Row="3" Grid.Column="1" >
-            <Button Cursor="Hand"  Content="Назад" Click="Button_Click" Template="{StaticResource btnTemp}"/>
+            <Button Cursor="Hand" Name="btnBack" Content="Назад" Click="btnBack_Click" Template="{StaticResource btnTemp}"/>
         </StackPanel>
 
 

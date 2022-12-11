@@ -17,12 +17,12 @@
         </Grid.RowDefinitions>
         <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 108 0 0">
 
-            <GroupBox Style="{StaticResource gpText}" Width="150" Header="Логин" Margin="0 0 60 0">
-                <TextBox MaxLength="20" Text="ger" Name="tblog"></TextBox>
+            <GroupBox Cursor="Hand" Style="{StaticResource gpText}" Width="150" Header="Логин" Margin="0 0 60 0">
+                <TextBox Cursor="Hand" MaxLength="20" Text="ger" Name="tblog"></TextBox>
             </GroupBox>
 
-            <GroupBox  Style="{StaticResource gpText}" Width="150" Header="Введите пароль">
-                <PasswordBox MaxLength="30"  Password="GgerG123!" Name="tbpass"></PasswordBox>
+            <GroupBox Cursor="Hand"  Style="{StaticResource gpText}" Width="150" Header="Введите пароль">
+                <PasswordBox Cursor="Hand" MaxLength="30"  Password="GgerG123!" Name="tbpass"></PasswordBox>
 
             </GroupBox>
 

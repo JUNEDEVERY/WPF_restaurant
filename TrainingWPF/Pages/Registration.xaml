@@ -19,16 +19,16 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <GroupBox Style="{StaticResource gpText}" Header="Введите фамилию" Grid.Row="0">
-                <TextBox MaxLength="20" Name="tbSurname"></TextBox>
+                <TextBox Cursor="IBeam" MaxLength="20" Name="tbSurname"></TextBox>
             </GroupBox>
             <GroupBox Style="{StaticResource gpText}" Header="Введите имя">
-                <TextBox MaxLength="15" Name="tbName" />
+                <TextBox Cursor="IBeam" MaxLength="15" Name="tbName" />
             </GroupBox>
             <GroupBox Style="{StaticResource gpText}" Header="Введите отчество">
-                <TextBox MaxLength="20" Name="tbPatronymic"></TextBox>
+                <TextBox Cursor="IBeam" MaxLength="20" Name="tbPatronymic"></TextBox>
             </GroupBox>
             <GroupBox Style="{StaticResource gpText}" Header="Введите логин">
-                <TextBox MaxLength="20" Name="tbLogin"></TextBox>
+                <TextBox Cursor="IBeam" MaxLength="20" Name="tbLogin"></TextBox>
             </GroupBox>
 
 
@@ -52,7 +52,7 @@
                             </TextBlock>
                         </TextBox.ToolTip>
                     </TextBox>
-                    <PasswordBox MaxLength="30" Name="tbPassword" Height="20" Width="200" >
+                    <PasswordBox Cursor="IBeam" MaxLength="30" Name="tbPassword" Height="20" Width="200" >
 
                         <PasswordBox.ToolTip>
 
@@ -69,7 +69,7 @@
                             </TextBlock>
                         </PasswordBox.ToolTip>
                     </PasswordBox>
-                    <CheckBox x:Name="checkPassword" Checked="checkPassword_Checked" Unchecked="checkPassword_Unchecked" VerticalAlignment="Center"/>
+                    <CheckBox Cursor="Hand" x:Name="checkPassword" Checked="checkPassword_Checked" Unchecked="checkPassword_Unchecked" VerticalAlignment="Center"/>
                 </StackPanel>
             </GroupBox>
 
@@ -94,7 +94,7 @@
                             </TextBlock>
                         </TextBox.ToolTip>
                     </TextBox>
-                    <PasswordBox MaxLength="30" Name="tbPassword2" Height="20" Width="200" >
+                    <PasswordBox Cursor="IBeam" MaxLength="30" Name="tbPassword2" Height="20" Width="200" >
                         <PasswordBox.ToolTip>
                             <TextBlock >
                                 Требования к паролю:
@@ -108,16 +108,16 @@
                             </TextBlock>
                         </PasswordBox.ToolTip>
                     </PasswordBox>
-                    <CheckBox x:Name="checkPassword2" Checked="checkPassword2_Checked_1" Unchecked="checkPassword2_Unchecked_1" VerticalAlignment="Center" Margin="0 0 0 0"/>
+                    <CheckBox Cursor="Hand" x:Name="checkPassword2" Checked="checkPassword2_Checked_1" Unchecked="checkPassword2_Unchecked_1" VerticalAlignment="Center" Margin="0 0 0 0"/>
                 </StackPanel>
             </GroupBox>
             <StackPanel Orientation="Horizontal">
                 <GroupBox Style="{StaticResource gpText}" Header="Выберите страну">
-                    <ComboBox Name="cmb"/>
+                    <ComboBox  Cursor="Hand" Name="cmb"/>
                 </GroupBox>
 
                 <GroupBox Style="{StaticResource gpText}" Header="Выберите город">
-                    <ComboBox Name="cmb2"/>
+                    <ComboBox Cursor="Hand" Name="cmb2"/>
                 </GroupBox>
 
 
@@ -127,8 +127,8 @@
 
             <StackPanel HorizontalAlignment="Center" Margin="6 4 0 2" Orientation="Horizontal">
 
-                <RadioButton Style="{StaticResource rbHeader}" Margin="-19 0 60 0" Name="rb1">Мужской</RadioButton>
-                <RadioButton Style="{StaticResource rbHeader}" Name="rb2">Женский</RadioButton>
+                <RadioButton Cursor="Hand" Style="{StaticResource rbHeader}" Margin="-19 0 60 0" Name="rb1">Мужской</RadioButton>
+                <RadioButton Cursor="Hand" Style="{StaticResource rbHeader}" Name="rb2">Женский</RadioButton>
 
             </StackPanel>
 
