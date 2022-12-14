@@ -132,6 +132,9 @@
     <Compile Include="Pages\AdminPage2.xaml.cs">
       <DependentUpon>AdminPage2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageAdvertisement.xaml.cs">
+      <DependentUpon>PageAdvertisement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PersonalAccount.xaml.cs">
       <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\PageAdvertisement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PersonalAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -265,6 +272,7 @@
     <Resource Include="Resources\MainBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\kindpng_423366.png" />
     <Resource Include="Resources\nullphoto.png" />
     <Resource Include="images\burger.jpg" />
     <Content Include="ModelDB\Model1.Context.tt">

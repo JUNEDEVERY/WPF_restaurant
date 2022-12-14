@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TrainingWPF.ModelDB;
+using TrainingWPF.Pages;
 
 namespace TrainingWPF
 {
@@ -39,6 +40,11 @@ namespace TrainingWPF
         {
             FrameWork.MainFrame.Navigate(new Registration());
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageAdvertisement());
         }
     }
 }

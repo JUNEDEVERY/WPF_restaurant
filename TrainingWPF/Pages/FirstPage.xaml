@@ -13,15 +13,27 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal" Margin ="0 30 0 0" >
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal" Margin ="0 130 0 0" >
             <Button  Cursor="Hand" Name="btnNext" Template="{StaticResource btnTemp}" Click="btnNext_Click" Content="Авторизация" Width="100" Height="30" />
             <Button Cursor="Hand" Name="btnReg" Click="btnReg_Click" Content="Регистрация" Width="100" Margin="15 0 0 0" Template="{StaticResource btnTemp}" />
+
+
+
+
+
+
         </WrapPanel>
 
 
-        <Image  Height="500" Width="350" Grid.Row="0" x:Name="Logo" Source="/Resources/clipart2680273.png"  />
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin ="0 0 0 130">
+            <Button Click="Button_Click"  Template="{StaticResource btnTemp}"   Content="Реклама"/>
+        </StackPanel>
+
+
+        <Image Grid.Row="0" x:Name="Logo" Source="/Resources/clipart2680273.png" Margin="155,-4,153,53" Grid.RowSpan="2"  />
 
 
 
